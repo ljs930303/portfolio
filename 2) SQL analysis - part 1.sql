@@ -1,4 +1,4 @@
--- create league_list and change Russian Premier League's name because it's the same as the English one
+-- create league_list and change Russian Premier League's name in it because it's the same as the English one
 
 CREATE TABLE league_list (
 	id INTEGER,
@@ -107,8 +107,6 @@ ALTER TABLE portfoliopjt2..standings_season_2021
 ALTER COLUMN "rank" int
 GO
 
-SELECT *
-FROM best_underdog_each_match
 
 -- 1) number of times each player was the best player when his team was an underdog
 -- 2) and the average of his ratings in the matches where his team was an underdog and he was the best player of his team
