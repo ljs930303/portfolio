@@ -1,13 +1,3 @@
-
---DROP VIEW prediction_and_result
---DROP VIEW underdog_and_upset
---DROP VIEW team_list
---DROP VIEW underdog_summary
---DROP VIEW best_underdog_each_match
---DROP TABLE league_list
---DROP TABLE team_list_temp
-
-
 -- create league_list and change Russian Premier League's name because it's the same as the English one
 
 CREATE TABLE league_list (
@@ -95,6 +85,7 @@ GO
 
 
 -- number of times being underdogs, number of upsets and upset rate per team
+
 CREATE VIEW underdog_summary AS (
 	SELECT u.underdog_id, t.team_name team_name, t.league_id, t.league_name, count(*) num_being_underdog, sum(u.upset) AS num_upset, 
 		   convert(decimal(5,2), sum(u.upset))/convert(decimal(5,2), count(*))*100 upset_rate
@@ -137,7 +128,7 @@ FROM best_underdog_each_match
 
 -- 1) number of times each player was the best player when his team was an underdog
 -- 2) and the average of his ratings in the matches where his team was an underdog and he was the best player of his team
--- make sure to save it as csv under the name 'best_underdog_players_season_xxxx.csv' so that it can be used for api scraping part 2
+-- make sure to save it as csv under the name 'best_underdog_players_season_xxxx.csv' so that it can be used for Python api data extraction part 2
 
 SELECT t.team_id, t.team_name, t.league_id, t.league_name,
 	u.num_best_underdog, u.avg_rating, u.player_id, u.player_name, u.position
