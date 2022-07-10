@@ -15,7 +15,6 @@ FROM portfoliopjt2..leagues
 UPDATE league_list
 SET "name" = 'Premier League (RU)'
 WHERE id = 235
-
 GO
 
 -- first attaching home team's prediction data and then away team to the basic fixtures_goal table
@@ -32,7 +31,6 @@ CREATE VIEW prediction_and_result AS (
 	ON g.fixture_id = h.fixture_id AND g.home_id = h.team_id
 	LEFT JOIN portfoliopjt2..prediction as a
 	ON g.fixture_id = a.fixture_id AND g.away_id = a.team_id)
-
 GO
 
 
@@ -44,17 +42,7 @@ CREATE VIEW underdog_and_upset AS (
 		   CASE WHEN home_total_pred < away_total_pred THEN home_id WHEN home_total_pred > away_total_pred THEN away_id END AS underdog_id,
 		   CASE WHEN (home_total_pred < away_total_pred and home_goals > away_goals) or (home_total_pred > away_total_pred and home_goals < away_goals) THEN 1 END AS upset
 	FROM prediction_and_result)
-
 GO
-
---ALTER VIEW underdog_and_upset
---ALTER COLUMN home_goals int;
---ALTER TABLE underdog_and_upset
---ALTER COLUMN away_goals int;
---ALTER TABLE underdog_and_upset
---ALTER COLUMN upset int;
-
---GO
 
 -- create a list of all the teams that are within the scope of this analysis
 
@@ -68,9 +56,7 @@ FROM portfoliopjt2..fixtures_goal
 INSERT INTO team_list_temp (team_id)
 SELECT DISTINCT away_id
 FROM portfoliopjt2..fixtures_goal
-
 GO
-
 
 CREATE VIEW team_list AS (
 	SELECT DISTINCT t.team_id, g.home_name team_name, g.league_id, l."name" league_name
@@ -92,8 +78,7 @@ CREATE VIEW underdog_summary AS (
 	FROM underdog_and_upset u
 	JOIN team_list t
 	ON u.underdog_id = t.team_id
-	GROUP BY u.underdog_id, t.team_name, t.league_id, t.league_name
-)
+	GROUP BY u.underdog_id, t.team_name, t.league_id, t.league_name)
 GO
 
 -- underdog team's best performer(s) for each match
@@ -115,8 +100,7 @@ CREATE VIEW best_underdog_each_match AS (
 		GROUP BY u.fixture_id, u.underdog_id, t.team_name, t.league_id, t.league_name, u.home_id, u.away_id, u.away_name, u.home_name, u.upset
 		HAVING u.underdog_id IS NOT NULL) a
 	LEFT JOIN portfoliopjt2..player_stats_total t
-	ON a.fixture_id = t.fixture_id and a.underdog_id = t.team_id and a.max_rating = t.rating
-)
+	ON a.fixture_id = t.fixture_id and a.underdog_id = t.team_id and a.max_rating = t.rating)
 GO
 
 ALTER TABLE portfoliopjt2..standings_season_2021
