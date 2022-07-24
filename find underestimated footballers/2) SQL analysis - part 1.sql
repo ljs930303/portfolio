@@ -110,7 +110,7 @@ GO
 -- Ananlysis result: best_underdog_players_season_2021.csv
 -- 1) number of times each player was the best player when his team was an underdog
 -- 2) and the average of his ratings in the matches where his team was an underdog and he was the best player of his team
--- make sure to save it as csv under the name 'best_underdog_players_season_2021.csv' so that it can be used for Python api data extraction part 2
+-- make sure to save it as csv under the name 'best_underdog_players_season_2021.csv' so that it can be used for Python API data extraction part 2
 
 SELECT t.team_id, t.team_name, t.league_id, t.league_name,
 	u.num_best_underdog, u.avg_rating, u.player_id, u.player_name, u.position
