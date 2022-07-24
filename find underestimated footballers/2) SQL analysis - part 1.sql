@@ -1,4 +1,4 @@
--- create league_list and change Russian Premier League's name in it because it's the same as the English one
+-- TABLE league_list: create league_list and change Russian Premier League's name in it because it's the same as the English one
 
 CREATE TABLE league_list (
 	id INTEGER,
