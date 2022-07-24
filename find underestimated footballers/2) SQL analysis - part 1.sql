@@ -17,7 +17,7 @@ SET "name" = 'Premier League (RU)'
 WHERE id = 235
 GO
 
--- first attaching home team's prediction data and then away team to the basic fixtures_goal table
+-- VIEW prediction_and_result: combine basic fixture information including goals (fixtures_goal.csv) and prediction data (fixtures_prediction.csv)
 
 CREATE VIEW prediction_and_result AS (
 	SELECT g.fixture_id, g.home_id, g.home_name, g.home_goals,
@@ -34,7 +34,7 @@ CREATE VIEW prediction_and_result AS (
 GO
 
 
--- create a view that shows the prediction data, results and also which team was the underdog for each game
+-- VIEW underdog_and_upset: take VIEW prediction_and_result and create a view that shows the prediction data, results and also which team was the underdog for each game
 
 CREATE VIEW underdog_and_upset AS (
 	SELECT fixture_id, home_id, home_name, FORMAT(CAST(left(home_total_pred,len(home_total_pred) - 1) as float) * .01, 'P') home_total_pred,
@@ -44,7 +44,7 @@ CREATE VIEW underdog_and_upset AS (
 	FROM prediction_and_result)
 GO
 
--- create a list of all the teams that are within the scope of this analysis
+-- VIEW team_list: create a list of all the teams that are within the scope of this analysis
 
 CREATE TABLE team_list_temp (
 	team_id INTEGER)
@@ -70,7 +70,7 @@ CREATE VIEW team_list AS (
 GO
 
 
--- number of times being underdogs, number of upsets and upset rate per team
+-- VIEW underdog_summary: number of times being underdogs, number of upsets and upset rate per team
 
 CREATE VIEW underdog_summary AS (
 	SELECT u.underdog_id, t.team_name team_name, t.league_id, t.league_name, count(*) num_being_underdog, sum(u.upset) AS num_upset, 
@@ -81,7 +81,7 @@ CREATE VIEW underdog_summary AS (
 	GROUP BY u.underdog_id, t.team_name, t.league_id, t.league_name)
 GO
 
--- underdog team's best performer(s) for each match
+-- VIEW best_underdog_each_match: underdog team's best performer(s) for each match
 
 CREATE VIEW best_underdog_each_match AS (
 	SELECT a.*, t.player_id, t.player_name, t.position
@@ -107,7 +107,7 @@ ALTER TABLE portfoliopjt2..standings_season_2021
 ALTER COLUMN "rank" int
 GO
 
-
+-- Ananlysis result
 -- 1) number of times each player was the best player when his team was an underdog
 -- 2) and the average of his ratings in the matches where his team was an underdog and he was the best player of his team
 -- make sure to save it as csv under the name 'best_underdog_players_season_xxxx.csv' so that it can be used for Python api data extraction part 2
