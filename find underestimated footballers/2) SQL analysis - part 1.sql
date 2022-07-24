@@ -107,7 +107,7 @@ ALTER TABLE portfoliopjt2..standings_season_2021
 ALTER COLUMN "rank" int
 GO
 
--- Ananlysis result
+-- Ananlysis result: best_underdog_players_season_2021.csv
 -- 1) number of times each player was the best player when his team was an underdog
 -- 2) and the average of his ratings in the matches where his team was an underdog and he was the best player of his team
 -- make sure to save it as csv under the name 'best_underdog_players_season_2021.csv' so that it can be used for Python api data extraction part 2
