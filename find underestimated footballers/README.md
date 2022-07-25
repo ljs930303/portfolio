@@ -19,4 +19,4 @@ Conclusion and some exemplary findings are summarized in _<5) Analysis result.pd
 This project uses Python for API data extraction and Microsoft SQL Server for analysis.
 
 You need to run file number 1 to 4 in an numerical order to get the right result at the end.
-API data extraction process and analysis process have two parts each because otherwise API data extraction process would use too much time to gather needless data.
+API data extraction process and analysis process have two parts each because otherwise API data extraction process would waste too much time on gathering needless data.
