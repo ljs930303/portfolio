@@ -12,7 +12,11 @@ This project helps you find those underestimated players by finding the players 
 
 By doing so, you can find the best players of weaker teams on the top of the result table because, in order for a player to be the best performing player of the underdog team many times, his team needs to be underdog in many fixtures too.
 
+Conclusion and some exemplary findings are summarized in <5) Analysis result.pdf>
+
 # Programs used
 
 This project uses Python for API data extraction and Microsoft SQL Server for analysis.
 
+You need to run file number 1 to 4 in an numerical order to get the right result at the end.
+API data extraction process and analysis process have two parts each because otherwise API data extraction process would use too much time to gather needless data.
