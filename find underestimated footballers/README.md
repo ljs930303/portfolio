@@ -12,7 +12,7 @@ This project helps you find those underestimated players by finding the players 
 
 By doing so, you can find the best players of weaker teams on the top of the result table because, in order for a player to be the best performing player of the underdog team many times, his team needs to be underdog in many fixtures too.
 
-Conclusion and some exemplary findings are summarized in [5) Analysis result.pdf](https://github.com/ljs930303/portfolio-projects/blob/master/find%20underestimated%20footballers/5)%20Analysis%20result.pdf)
+Conclusion and some exemplary findings are summarized in _<5) Analysis result.pdf>_
 
 # Programs used
 
