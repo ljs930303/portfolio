@@ -22,4 +22,5 @@ This project uses Python for API data extraction and Microsoft SQL Server for an
 
 You need to run file number 1 to 4 in an numerical order to get the right result at the end of _<4) SQL analysis - part 2.sql>_.
 API data extraction process and analysis process are divided in two parts each because otherwise API data extraction process would waste too much time on gathering needless data.
+
 That is, part 1 of API data extraction process (Python) gets data for entire population, part 1 of analysis process (SQL) keeps only the best underdogs who are worth further analysis, part 2 of API data extraction process (Python) gets additional data for the best underdogs, and part 2 of analysis process (SQL) conducts final analysis on them and display the end result.
