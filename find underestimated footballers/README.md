@@ -1,6 +1,6 @@
 # Find underestimated footballers
 
-Let's say you are the owner or the manager of a small/mid-size football club in Europe.
+You are the owner or the manager of a small/mid-size football club in Europe.
 
 Your club can't afford to splash plenty of cash to sign famous top-class players, so you need to find affordable and underestimated players who are in a weaker team, excellent in record, yet not super famous in media.
 
@@ -20,5 +20,5 @@ Conclusion and some exemplary findings are summarized in _<5) Analysis result.pd
 
 This project uses Python for API data extraction and Microsoft SQL Server for analysis.
 
-You need to run file number 1 to 4 in an numerical order to get the right result at the end.
-API data extraction process and analysis process have two parts each because otherwise API data extraction process would waste too much time on gathering needless data.
+You need to run file number 1 to 4 in an numerical order to get the right result at the end of _<4) SQL analysis - part 2.sql>_.
+API data extraction process and analysis process are divided in two parts each because otherwise API data extraction process would waste too much time on gathering needless data.
