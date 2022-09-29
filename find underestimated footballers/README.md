@@ -14,7 +14,8 @@ By doing so, you can find the best players of weaker teams on the top of the res
 
 The analysis scope is limited to top two leagues of top 5 countries and top league of the next 5 countries according to UEFA country coefficients 2021/2022 - total 15 leagues.
 
-Conclusion and some exemplary findings are summarized in _<5) Analysis result.pdf>_
+Conclusion and some exemplary findings are summarized in 
+##_<5) Analysis result.pdf>_
 
 # Programs used
 
